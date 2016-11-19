@@ -16,7 +16,7 @@ namespace CallanMethod
         public string Mail { get; set; }
         public int AmountOfBlock { get; set; }
         private string password;
-        public string Password { set { password = ToMD5(value); } }
+        public string Password { get { return password; } set { password = ToMD5(value); } }
         public string userLogin { get; set; }
 
         public User(String userLogin, String password, String FullName, String Mail, DateTime DateOfBirth)

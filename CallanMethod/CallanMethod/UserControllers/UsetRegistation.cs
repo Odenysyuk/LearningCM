@@ -37,13 +37,13 @@ namespace CallanMethod
 
             User tUser = new User(userLogin, userPassword, fullName, userEmail, dateTimePicker1.Value);
 
-            if (!MainForm.Instance.contollerID.HasRegistration(tUser))
+            if (MainForm.Instance.contollerID.HasRegistration(tUser))
             {
                 MainForm.Instance.contollerID.ShowMessage("Program have got login with login. Change it to another!");
             }
             else
             {
-
+                MainForm.Instance.contollerID.RegistaionNewUser(tUser);
             }
 
         }
@@ -65,7 +65,25 @@ namespace CallanMethod
 
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
-            if(!MainForm.Instance.MetroContainer.Controls.ContainsKey("MainMenu"))
+
+            String userLogin = mLoginIn.Text;
+            String userPassword = mPasswordIn.Text;
+
+            if (String.IsNullOrEmpty(userLogin)
+                || String.IsNullOrEmpty(userPassword))
+            {
+                MainForm.Instance.contollerID.ShowMessage("Some field is empty!!! Check again!!!");
+            }
+
+            User tUser = new User(userLogin, userPassword);
+
+            if (MainForm.Instance.contollerID.HasRegistration(tUser) == false)
+            {
+                MainForm.Instance.contollerID.ShowMessage(@"Program haven't got login with password. Change it to another!");
+                return;
+            }
+            
+            if (!MainForm.Instance.MetroContainer.Controls.ContainsKey("MainMenu"))
             {
                 MainMenu uc = new MainMenu();
                 uc.Dock = DockStyle.Fill;

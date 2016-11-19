@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 
 namespace CallanMethod
 {
@@ -19,6 +20,14 @@ namespace CallanMethod
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
+            var field = sender as MetroTile;
+            if(field == null)
+            {
+                return;
+            }
+            var stage = field.Name.Replace("metroStage", "");
+            MainForm.Instance.contollerID.stage = new Stage(stage);
+
             if (!MainForm.Instance.MetroContainer.Controls.ContainsKey("ChoiceInStage"))
             {
                 ChoiceInStage uc = new ChoiceInStage();

@@ -33,8 +33,8 @@
             this.PanelSignIn = new MetroFramework.Controls.MetroPanel();
             this.buttonSignIn = new MetroFramework.Controls.MetroButton();
             this.metroUserControl2 = new MetroFramework.Controls.MetroUserControl();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.mPasswordIn = new MetroFramework.Controls.MetroTextBox();
+            this.mLoginIn = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.PanelSigpUp = new MetroFramework.Controls.MetroPanel();
@@ -88,8 +88,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelSignIn.Controls.Add(this.buttonSignIn);
             this.PanelSignIn.Controls.Add(this.metroUserControl2);
-            this.PanelSignIn.Controls.Add(this.metroTextBox1);
-            this.PanelSignIn.Controls.Add(this.metroTextBox2);
+            this.PanelSignIn.Controls.Add(this.mPasswordIn);
+            this.PanelSignIn.Controls.Add(this.mLoginIn);
             this.PanelSignIn.Controls.Add(this.metroLabel6);
             this.PanelSignIn.Controls.Add(this.metroLabel7);
             this.PanelSignIn.HorizontalScrollbarBarColor = true;
@@ -124,31 +124,31 @@
             this.metroUserControl2.Size = new System.Drawing.Size(8, 8);
             this.metroUserControl2.TabIndex = 7;
             // 
-            // metroTextBox1
+            // mPasswordIn
             // 
-            this.metroTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.mPasswordIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTextBox1.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.metroTextBox1.Location = new System.Drawing.Point(36, 112);
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '●';
-            this.metroTextBox1.PromptText = "password";
-            this.metroTextBox1.Size = new System.Drawing.Size(314, 23);
-            this.metroTextBox1.TabIndex = 5;
-            this.metroTextBox1.UseStyleColors = true;
-            this.metroTextBox1.UseSystemPasswordChar = true;
+            this.mPasswordIn.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.mPasswordIn.Location = new System.Drawing.Point(36, 112);
+            this.mPasswordIn.Name = "mPasswordIn";
+            this.mPasswordIn.PasswordChar = '●';
+            this.mPasswordIn.PromptText = "password";
+            this.mPasswordIn.Size = new System.Drawing.Size(314, 23);
+            this.mPasswordIn.TabIndex = 2;
+            this.mPasswordIn.UseStyleColors = true;
+            this.mPasswordIn.UseSystemPasswordChar = true;
             // 
-            // metroTextBox2
+            // mLoginIn
             // 
-            this.metroTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.mLoginIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTextBox2.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.metroTextBox2.Location = new System.Drawing.Point(36, 48);
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PromptText = "login";
-            this.metroTextBox2.Size = new System.Drawing.Size(314, 23);
-            this.metroTextBox2.TabIndex = 5;
-            this.metroTextBox2.UseStyleColors = true;
+            this.mLoginIn.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.mLoginIn.Location = new System.Drawing.Point(36, 48);
+            this.mLoginIn.Name = "mLoginIn";
+            this.mLoginIn.PromptText = "login";
+            this.mLoginIn.Size = new System.Drawing.Size(314, 23);
+            this.mLoginIn.TabIndex = 1;
+            this.mLoginIn.UseStyleColors = true;
             // 
             // metroLabel6
             // 
@@ -263,7 +263,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.PromptText = "login";
             this.tbLogin.Size = new System.Drawing.Size(314, 23);
-            this.tbLogin.TabIndex = 5;
+            this.tbLogin.TabIndex = 2;
             this.tbLogin.UseStyleColors = true;
             // 
             // metroLabel4
@@ -274,7 +274,7 @@
             this.metroLabel4.Location = new System.Drawing.Point(4, 138);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(113, 25);
-            this.metroLabel4.TabIndex = 4;
+            this.metroLabel4.TabIndex = 3;
             this.metroLabel4.Text = "Date of birth";
             this.metroLabel4.UseStyleColors = true;
             // 
@@ -310,7 +310,7 @@
             this.metroLabel2.Location = new System.Drawing.Point(3, 74);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(56, 25);
-            this.metroLabel2.TabIndex = 4;
+            this.metroLabel2.TabIndex = 6;
             this.metroLabel2.Text = "Login";
             this.metroLabel2.UseStyleColors = true;
             // 
@@ -323,7 +323,7 @@
             this.tbFullName.Name = "tbFullName";
             this.tbFullName.PromptText = "Full name";
             this.tbFullName.Size = new System.Drawing.Size(314, 23);
-            this.tbFullName.TabIndex = 5;
+            this.tbFullName.TabIndex = 7;
             this.tbFullName.UseStyleColors = true;
             // 
             // metroLabel1
@@ -334,7 +334,7 @@
             this.metroLabel1.Location = new System.Drawing.Point(3, 45);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(54, 25);
-            this.metroLabel1.TabIndex = 4;
+            this.metroLabel1.TabIndex = 8;
             this.metroLabel1.Text = "Email";
             this.metroLabel1.UseStyleColors = true;
             // 
@@ -346,7 +346,7 @@
             this.LabelName.Location = new System.Drawing.Point(3, 11);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(88, 25);
-            this.LabelName.TabIndex = 4;
+            this.LabelName.TabIndex = 9;
             this.LabelName.Text = "Full name";
             this.LabelName.UseStyleColors = true;
             // 
@@ -358,7 +358,7 @@
             this.metroTile1.Location = new System.Drawing.Point(0, 3);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(203, 93);
-            this.metroTile1.TabIndex = 2;
+            this.metroTile1.TabIndex = 10;
             this.metroTile1.Text = "Sign in";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -375,7 +375,7 @@
             this.metroTile2.Location = new System.Drawing.Point(209, 3);
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(208, 93);
-            this.metroTile2.TabIndex = 2;
+            this.metroTile2.TabIndex = 11;
             this.metroTile2.Text = "Sign up";
             this.metroTile2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -427,8 +427,8 @@
         private MetroFramework.Controls.MetroPanel PanelSignIn;
         private MetroFramework.Controls.MetroButton buttonSignIn;
         private MetroFramework.Controls.MetroUserControl metroUserControl2;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroTextBox mPasswordIn;
+        private MetroFramework.Controls.MetroTextBox mLoginIn;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         public MetroFramework.Components.MetroStyleManager metroStyleManager;

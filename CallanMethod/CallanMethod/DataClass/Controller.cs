@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using CallanMethod.Properties;
+using CallanMethod;
 
 namespace CallanMethod.DataClass
 {
@@ -19,6 +20,7 @@ namespace CallanMethod.DataClass
         SqlDataAdapter adapterWords;
         SqlDataAdapter aUsers;
         public User user { get; set; }
+        public Stage stage { get; set; } 
 
         public bool HasRegistration(User userAplication)
         {
@@ -35,16 +37,31 @@ namespace CallanMethod.DataClass
                     return false;
                 }
                 var users = dtSet.Tables["Users"].Rows;
-                if (users.Count == 0)
-                    return false;
+                if (users.Count != 0)
+                {
+                    userAplication.FullName = users[0]["Name"].ToString();
+                    userAplication.AmountOfBlock = Convert.ToInt32(users[0]["AmoutOfBlock"].ToString());
+                    userAplication.DateOfBirth = Convert.ToDateTime(users[0]["DateOfBirth"].ToString());
+                    return true;
+                }
+                    
 
             }
             
-            return true;
+            return false;
         }
 
         public bool RegistaionNewUser(User userAplication)
         {
+            var newRow = dtSet.Tables["Users"].NewRow();
+            newRow["ID_Login"] = userAplication.userLogin;
+            newRow["Name"] = userAplication.FullName;
+            newRow["UserPassword"] = userAplication.Password;
+            newRow["DateOfBirth"] = userAplication.DateOfBirth;
+            newRow["Mail"] = userAplication.Mail;
+            newRow["AmoutOfBlock"] = userAplication.AmountOfBlock;
+            dtSet.Tables["Users"].Rows.Add(newRow);
+
             using (SqlConnection connection = new SqlConnection(Settings.Default.DbConnect))
             {
                 aUsers = new SqlDataAdapter(userAplication.CommandFindUsers(), connection);
@@ -61,11 +78,15 @@ namespace CallanMethod.DataClass
                     return false;
                 }
                 var users = dtSet.Tables["Users"].Rows;
-                if (users.Count == 0)
-                    return false;
+                if (users.Count!= 0)
+                {
+                    this.user = userAplication;
+                    return true;
+                }
+                    
             }
 
-            return true;
+            return false;
         }
 
         public void ShowMessage(String textMessage)
@@ -79,5 +100,7 @@ namespace CallanMethod.DataClass
             msg.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.AeroShadow;
             msg.ShowDialog();
         }
+
+
     }
 }
