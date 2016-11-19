@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CallanMethodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blocks">
+          <Key>
+            <PropertyRef Name="ID_Block" />
+          </Key>
+          <Property Name="ID_Block" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CallanMethod.dbo.LearntWords' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LearntWords">
+          <Key>
+            <PropertyRef Name="ID_Word" />
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Word" Type="int" Nullable="false" />
+          <Property Name="ID_Login" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lessons">
+          <Key>
+            <PropertyRef Name="ID_Lesson" />
+          </Key>
+          <Property Name="ID_Lesson" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CallanMethod.dbo.Question' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID_Block" />
+          </Key>
+          <Property Name="ID_Block" Type="int" Nullable="false" />
+          <Property Name="Question" Type="varchar" MaxLength="100" />
+          <Property Name="Answer" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CallanMethod.dbo.Sounds' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sounds">
+          <Key>
+            <PropertyRef Name="ID_Word" />
+          </Key>
+          <Property Name="ID_Word" Type="int" Nullable="false" />
+          <Property Name="NamePath" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Stages">
+          <Key>
+            <PropertyRef Name="ID_Stage" />
+          </Key>
+          <Property Name="ID_Stage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Login" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="100" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Mail" Type="varchar" MaxLength="100" />
+          <Property Name="AmoutOfBlock" Type="int" />
+        </EntityType>
+        <EntityType Name="Words">
+          <Key>
+            <PropertyRef Name="ID_Word" />
+          </Key>
+          <Property Name="ID_Word" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Translation" Type="varchar" MaxLength="100" />
+          <Property Name="ID_Block" Type="int" Nullable="false" />
+          <Property Name="ID_Lesson" Type="int" Nullable="false" />
+          <Property Name="ID_Stage" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__LearntWor__ID_Lo__24927208">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="LearntWords" Type="Self.LearntWords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_Login" />
+            </Principal>
+            <Dependent Role="LearntWords">
+              <PropertyRef Name="ID_Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LearntWor__ID_Wo__239E4DCF">
+          <End Role="Words" Type="Self.Words" Multiplicity="1" />
+          <End Role="LearntWords" Type="Self.LearntWords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Words">
+              <PropertyRef Name="ID_Word" />
+            </Principal>
+            <Dependent Role="LearntWords">
+              <PropertyRef Name="ID_Word" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__ID_Blo__1A14E395">
+          <End Role="Blocks" Type="Self.Blocks" Multiplicity="1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Blocks">
+              <PropertyRef Name="ID_Block" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="ID_Block" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sounds__ID_Word__1BFD2C07">
+          <End Role="Words" Type="Self.Words" Multiplicity="1" />
+          <End Role="Sounds" Type="Self.Sounds" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Words">
+              <PropertyRef Name="ID_Word" />
+            </Principal>
+            <Dependent Role="Sounds">
+              <PropertyRef Name="ID_Word" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__ID_Block__164452B1">
+          <End Role="Blocks" Type="Self.Blocks" Multiplicity="1" />
+          <End Role="Words" Type="Self.Words" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blocks">
+              <PropertyRef Name="ID_Block" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="ID_Block" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__ID_Lesson__173876EA">
+          <End Role="Lessons" Type="Self.Lessons" Multiplicity="1" />
+          <End Role="Words" Type="Self.Words" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lessons">
+              <PropertyRef Name="ID_Lesson" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="ID_Lesson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__ID_Stage__182C9B23">
+          <End Role="Stages" Type="Self.Stages" Multiplicity="1" />
+          <End Role="Words" Type="Self.Words" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="ID_Stage" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="ID_Stage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CallanMethodModelStoreContainer">
+          <EntitySet Name="Blocks" EntityType="Self.Blocks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lessons" EntityType="Self.Lessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stages" EntityType="Self.Stages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Words" EntityType="Self.Words" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearntWords" EntityType="Self.LearntWords" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LearntWords].[ID_Word] AS [ID_Word], 
+    [LearntWords].[ID_Login] AS [ID_Login]
+    FROM [dbo].[LearntWords] AS [LearntWords]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Question" EntityType="Self.Question" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Question].[ID_Block] AS [ID_Block], 
+    [Question].[Question] AS [Question], 
+    [Question].[Answer] AS [Answer]
+    FROM [dbo].[Question] AS [Question]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sounds" EntityType="Self.Sounds" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sounds].[ID_Word] AS [ID_Word], 
+    [Sounds].[NamePath] AS [NamePath]
+    FROM [dbo].[Sounds] AS [Sounds]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__LearntWor__ID_Lo__24927208" Association="Self.FK__LearntWor__ID_Lo__24927208">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="LearntWords" EntitySet="LearntWords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LearntWor__ID_Wo__239E4DCF" Association="Self.FK__LearntWor__ID_Wo__239E4DCF">
+            <End Role="Words" EntitySet="Words" />
+            <End Role="LearntWords" EntitySet="LearntWords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__ID_Blo__1A14E395" Association="Self.FK__Question__ID_Blo__1A14E395">
+            <End Role="Blocks" EntitySet="Blocks" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sounds__ID_Word__1BFD2C07" Association="Self.FK__Sounds__ID_Word__1BFD2C07">
+            <End Role="Words" EntitySet="Words" />
+            <End Role="Sounds" EntitySet="Sounds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__ID_Block__164452B1" Association="Self.FK__Words__ID_Block__164452B1">
+            <End Role="Blocks" EntitySet="Blocks" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__ID_Lesson__173876EA" Association="Self.FK__Words__ID_Lesson__173876EA">
+            <End Role="Lessons" EntitySet="Lessons" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__ID_Stage__182C9B23" Association="Self.FK__Words__ID_Stage__182C9B23">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CallanMethodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="ID_Block" />
+          </Key>
+          <Property Name="ID_Block" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__Question__ID_Blo__1A14E395" FromRole="Blocks" ToRole="Question" />
+          <NavigationProperty Name="Words" Relationship="Self.FK__Words__ID_Block__164452B1" FromRole="Blocks" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="ID_Lesson" />
+          </Key>
+          <Property Name="ID_Lesson" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Words" Relationship="Self.FK__Words__ID_Lesson__173876EA" FromRole="Lessons" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="Stage">
+          <Key>
+            <PropertyRef Name="ID_Stage" />
+          </Key>
+          <Property Name="ID_Stage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Words" Relationship="Self.FK__Words__ID_Stage__182C9B23" FromRole="Stages" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AmoutOfBlock" Type="Int32" />
+          <NavigationProperty Name="Words" Relationship="Self.LearntWords" FromRole="Users" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="ID_Word" />
+          </Key>
+          <Property Name="ID_Word" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Translation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Block" Type="Int32" Nullable="false" />
+          <Property Name="ID_Lesson" Type="Int32" Nullable="false" />
+          <Property Name="ID_Stage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Block" Relationship="Self.FK__Words__ID_Block__164452B1" FromRole="Words" ToRole="Blocks" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK__Words__ID_Lesson__173876EA" FromRole="Words" ToRole="Lessons" />
+          <NavigationProperty Name="Stage" Relationship="Self.FK__Words__ID_Stage__182C9B23" FromRole="Words" ToRole="Stages" />
+          <NavigationProperty Name="Sound" Relationship="Self.FK__Sounds__ID_Word__1BFD2C07" FromRole="Words" ToRole="Sounds" />
+          <NavigationProperty Name="Users" Relationship="Self.LearntWords" FromRole="Words" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID_Block" />
+          </Key>
+          <Property Name="ID_Block" Type="Int32" Nullable="false" />
+          <Property Name="Question1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Block" Relationship="Self.FK__Question__ID_Blo__1A14E395" FromRole="Question" ToRole="Blocks" />
+        </EntityType>
+        <EntityType Name="Sound">
+          <Key>
+            <PropertyRef Name="ID_Word" />
+          </Key>
+          <Property Name="ID_Word" Type="Int32" Nullable="false" />
+          <Property Name="NamePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Word" Relationship="Self.FK__Sounds__ID_Word__1BFD2C07" FromRole="Sounds" ToRole="Words" />
+        </EntityType>
+        <Association Name="FK__Question__ID_Blo__1A14E395">
+          <End Role="Blocks" Type="Self.Block" Multiplicity="1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Blocks">
+              <PropertyRef Name="ID_Block" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="ID_Block" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__ID_Block__164452B1">
+          <End Role="Blocks" Type="Self.Block" Multiplicity="1" />
+          <End Role="Words" Type="Self.Word" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blocks">
+              <PropertyRef Name="ID_Block" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="ID_Block" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__ID_Lesson__173876EA">
+          <End Role="Lessons" Type="Self.Lesson" Multiplicity="1" />
+          <End Role="Words" Type="Self.Word" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lessons">
+              <PropertyRef Name="ID_Lesson" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="ID_Lesson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__ID_Stage__182C9B23">
+          <End Role="Stages" Type="Self.Stage" Multiplicity="1" />
+          <End Role="Words" Type="Self.Word" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="ID_Stage" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="ID_Stage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sounds__ID_Word__1BFD2C07">
+          <End Role="Words" Type="Self.Word" Multiplicity="1" />
+          <End Role="Sounds" Type="Self.Sound" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Words">
+              <PropertyRef Name="ID_Word" />
+            </Principal>
+            <Dependent Role="Sounds">
+              <PropertyRef Name="ID_Word" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LearntWords">
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="Words" Type="Self.Word" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CallanMethodEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blocks" EntityType="Self.Block" />
+          <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+          <EntitySet Name="Stages" EntityType="Self.Stage" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Words" EntityType="Self.Word" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="Sounds" EntityType="Self.Sound" />
+          <AssociationSet Name="FK__Question__ID_Blo__1A14E395" Association="Self.FK__Question__ID_Blo__1A14E395">
+            <End Role="Blocks" EntitySet="Blocks" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__ID_Block__164452B1" Association="Self.FK__Words__ID_Block__164452B1">
+            <End Role="Blocks" EntitySet="Blocks" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__ID_Lesson__173876EA" Association="Self.FK__Words__ID_Lesson__173876EA">
+            <End Role="Lessons" EntitySet="Lessons" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__ID_Stage__182C9B23" Association="Self.FK__Words__ID_Stage__182C9B23">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sounds__ID_Word__1BFD2C07" Association="Self.FK__Sounds__ID_Word__1BFD2C07">
+            <End Role="Words" EntitySet="Words" />
+            <End Role="Sounds" EntitySet="Sounds" />
+          </AssociationSet>
+          <AssociationSet Name="LearntWords" Association="Self.LearntWords">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CallanMethodModelStoreContainer" CdmEntityContainer="CallanMethodEntities">
+          <EntitySetMapping Name="Blocks">
+            <EntityTypeMapping TypeName="CallanMethodModel.Block">
+              <MappingFragment StoreEntitySet="Blocks">
+                <ScalarProperty Name="ID_Block" ColumnName="ID_Block" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="CallanMethodModel.Lesson">
+              <MappingFragment StoreEntitySet="Lessons">
+                <ScalarProperty Name="ID_Lesson" ColumnName="ID_Lesson" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stages">
+            <EntityTypeMapping TypeName="CallanMethodModel.Stage">
+              <MappingFragment StoreEntitySet="Stages">
+                <ScalarProperty Name="ID_Stage" ColumnName="ID_Stage" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CallanMethodModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="AmoutOfBlock" ColumnName="AmoutOfBlock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Words">
+            <EntityTypeMapping TypeName="CallanMethodModel.Word">
+              <MappingFragment StoreEntitySet="Words">
+                <ScalarProperty Name="ID_Word" ColumnName="ID_Word" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Translation" ColumnName="Translation" />
+                <ScalarProperty Name="ID_Block" ColumnName="ID_Block" />
+                <ScalarProperty Name="ID_Lesson" ColumnName="ID_Lesson" />
+                <ScalarProperty Name="ID_Stage" ColumnName="ID_Stage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="CallanMethodModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="ID_Block" ColumnName="ID_Block" />
+                <ScalarProperty Name="Question1" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sounds">
+            <EntityTypeMapping TypeName="CallanMethodModel.Sound">
+              <MappingFragment StoreEntitySet="Sounds">
+                <ScalarProperty Name="ID_Word" ColumnName="ID_Word" />
+                <ScalarProperty Name="NamePath" ColumnName="NamePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="LearntWords" TypeName="CallanMethodModel.LearntWords" StoreEntitySet="LearntWords">
+            <EndProperty Name="Users">
+              <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+            </EndProperty>
+            <EndProperty Name="Words">
+              <ScalarProperty Name="ID_Word" ColumnName="ID_Word" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

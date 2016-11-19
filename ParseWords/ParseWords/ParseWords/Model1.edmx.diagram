@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="14c23b8330ff461dac4818f3f50fdf03" Name="Diagram1">
+        <EntityTypeShape EntityType="CallanMethodModel.Block" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallanMethodModel.Lesson" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallanMethodModel.Stage" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallanMethodModel.User" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallanMethodModel.Word" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallanMethodModel.Question" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallanMethodModel.Sound" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="CallanMethodModel.FK__Question__ID_Blo__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="CallanMethodModel.FK__Words__ID_Block__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="CallanMethodModel.FK__Words__ID_Lesson__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="CallanMethodModel.FK__Words__ID_Stage__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="CallanMethodModel.FK__Sounds__ID_Word__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="CallanMethodModel.LearntWords" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

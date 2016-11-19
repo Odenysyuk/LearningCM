@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37F60072-E15F-498F-874E-9BD54EF44B13}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CallanMethod</RootNamespace>
+    <AssemblyName>CallanMethod</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataClass\Block.cs" />
+    <Compile Include="DataClass\Controller.cs" />
+    <Compile Include="DataClass\Question.cs" />
+    <Compile Include="DataClass\Word.cs" />
+    <Compile Include="UserControllers\ChoiceInStage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControllers\ChoiceInStage.Designer.cs">
+      <DependentUpon>ChoiceInStage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataClass\LearntWord.cs" />
+    <Compile Include="DataClass\Lesson.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControllers\MainMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControllers\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DataClass\Stage.cs" />
+    <Compile Include="UserControllers\ucChalkboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControllers\ucChalkboard.Designer.cs">
+      <DependentUpon>ucChalkboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataClass\User.cs" />
+    <Compile Include="UserControllers\UsetRegistation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControllers\UsetRegistation.Designer.cs">
+      <DependentUpon>UsetRegistation.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControllers\ChoiceInStage.resx">
+      <DependentUpon>ChoiceInStage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControllers\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControllers\ucChalkboard.resx">
+      <DependentUpon>ucChalkboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControllers\UsetRegistation.resx">
+      <DependentUpon>UsetRegistation.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\EmptyChalkboard.png" />
+    <None Include="Resources\chalkboard-152414_960_7201.png" />
+    <None Include="Resources\chalkboard-152414_960_720.png" />
+    <None Include="Resources\Chalkboard_first.png" />
+    <None Include="Resources\Chalkboard.png" />
+    <None Include="Resources\chalkboard12.png" />
+    <None Include="Resources\1477773942_donutchart.png" />
+    <None Include="Resources\1477773733_pidgin.png" />
+    <None Include="Resources\1477773396_panda.png" />
+    <None Include="Resources\1477772768_lessons.png" />
+    <None Include="Resources\1477768998_iChat top delire.png" />
+    <None Include="Resources\1477768927_t9ratty_trans.png" />
+    <None Include="Resources\1477768829_t9froggy_trans.png" />
+    <None Include="Resources\1477768781_t9lion_trans.png" />
+    <None Include="Resources\1477768693_t9panda_trans.png" />
+    <None Include="Resources\1477768649_t9elephant_trans.png" />
+    <None Include="Resources\1477768602_t9batty_trans.png" />
+    <None Include="Resources\1477768567_t9foxy_trans.png" />
+    <None Include="Resources\1477768383_t9tuqui_trans.png" />
+    <None Include="Resources\1477768263_Giraffe.png" />
+    <None Include="Resources\1477768143_twitter.png" />
+    <None Include="Resources\book.ico" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\book.png" />
+    <None Include="Resources\dialpad.png" />
+    <None Include="Resources\bird_red2 %281%29.png" />
+    <None Include="Resources\owl1.ico" />
+    <None Include="Resources\bird_red2.ico" />
+    <None Include="Resources\owl.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
