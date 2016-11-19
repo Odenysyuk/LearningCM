@@ -10,17 +10,20 @@ using CallanMethod;
 
 namespace CallanMethod.DataClass
 {
+    public enum StateForLearnig {LearningLesson = 0,  RepeatLesson = 1, RepeatQuestion = 2};
     public class ControllerForm
     {
         DataSet dtSet = new DataSet();
-        SqlDataAdapter adapterBlock;
-        SqlDataAdapter adapterLessons;
-        SqlDataAdapter adapterStages;
         SqlDataAdapter adapterQuestion;
         SqlDataAdapter adapterWords;
+        SqlDataAdapter adapterLearntWords;
+
         SqlDataAdapter aUsers;
         public User user { get; set; }
-        public Stage stage { get; set; } 
+        public Stage stage { get; set; }
+        public Queue<Word>WordForStudy = new Queue<Word>();
+        public StateForLearnig stateForStudy { get; set; }
+         
 
         public bool HasRegistration(User userAplication)
         {
@@ -101,6 +104,54 @@ namespace CallanMethod.DataClass
             msg.ShowDialog();
         }
 
+        public bool GetWordForLerning()
+        {
+
+            WordForStudy.Clear();
+            using (SqlConnection connection = new SqlConnection(Settings.Default.DbConnect))
+            {
+                adapterWords = new SqlDataAdapter(CommandFindWordForStudy(), connection);
+                try
+                {
+                    adapterWords.Fill(dtSet, "Words");
+                }
+                catch (Exception e)
+                {
+                    ShowMessage(e.Message);
+                    return false;
+                }
+                DataRowCollection words = dtSet.Tables["Words"].Rows;
+                if (words.Count != 0)
+                {
+                    foreach (DataRow el in words)
+                    {
+                        WordForStudy.Enqueue(
+                                            new Word(Int32.Parse(el["ID_Word"].ToString()),
+                                                 el["Name"].ToString(),
+                                                 el["Translation"].ToString(),
+                                                 el["ID_Block"].ToString(),
+                                                 el["ID_Lesson"].ToString(),
+                                                 el["ID_Stage"].ToString()
+                                                 )
+                                            );
+
+                    }
+
+                    return true;
+                }
+
+                return false;
+
+            }
+        }
+
+        private String CommandFindWordForStudy()
+        {
+            return "SELECT *  " +
+                   " FROM Words " +
+                   " WHERE ID_Word Not IN (SELECT ID_Word FROM LearntWords) "+
+                   " AND ID_Stage = " + this.stage.ID_Stage.ToString();
+        }
 
     }
 }

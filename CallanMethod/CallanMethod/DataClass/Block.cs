@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CallanMethod
 {
-    class Block
+    public class Block
     {
         public Int32 ID_Block { get; set; }
         public String Name { get; set; }

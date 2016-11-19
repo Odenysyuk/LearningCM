@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 
 namespace CallanMethod.DataClass
 {
-    class Word
+    public class Word
     {
         public Int32 ID_Word{ get; set; }
         public String Name { get; set; }
         public String Translation { get; set; }
-        public Block block { get; set; }
-        public Stage stage { get; set; }
-        public Lesson lesson { get; set; }
+        public String block { get; set; }
+        public String stage { get; set; }
+        public String lesson { get; set; }
+
+        public Word(Int32 ID, String Name, String Translation, String block, String stage, string lesson)
+        {
+            this.ID_Word = ID;
+            this.Name = Name;
+            this.Translation = Translation;
+            this.block = block;
+            this.stage = stage;
+            this.lesson = lesson;
+        }
     }
 }

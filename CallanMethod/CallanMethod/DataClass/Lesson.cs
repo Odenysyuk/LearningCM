@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CallanMethod
 {
-    class Lesson
+    public class Lesson
     {
         public Int32 ID_Lesson { get; set; }
         public String Name { get; set; }

@@ -19,6 +19,14 @@ namespace CallanMethod
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
+            if(MainForm.Instance.contollerID.GetWordForLerning() == false)
+            {
+                MainForm.Instance.contollerID.ShowMessage("Ups...Haven't got any information!!!");
+                return;
+            }
+
+            MainForm.Instance.contollerID.stateForStudy = 0;
+
             if (!MainForm.Instance.MetroContainer.Controls.ContainsKey("ucChalkboard"))
             {
                 ucChalkboard uc = new ucChalkboard();
