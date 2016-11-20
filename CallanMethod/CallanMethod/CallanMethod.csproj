@@ -139,6 +139,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\1479650611_questionssvg.png" />
+    <None Include="Resources\1479648260_circle-content-play.png" />
     <None Include="Resources\EmptyChalkboard.png" />
     <None Include="Resources\chalkboard-152414_960_7201.png" />
     <None Include="Resources\chalkboard-152414_960_720.png" />

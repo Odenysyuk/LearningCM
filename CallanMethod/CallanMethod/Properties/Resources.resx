@@ -118,82 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_1477768567_t9foxy_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768567_t9foxy_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1477773942_donutchart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477773942_donutchart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bird_red2 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_red2 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1477768143_twitter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768143_twitter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dialpad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dialpad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1477772768_lessons" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477772768_lessons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Chalkboard_first" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Chalkboard_first.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1477773733_pidgin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477773733_pidgin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1477768927_t9ratty_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768927_t9ratty_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1477768263_Giraffe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768263_Giraffe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1477768829_t9froggy_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1477768829_t9froggy_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1477768383_t9tuqui_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768383_t9tuqui_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1477773733_pidgin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477773733_pidgin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="owl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\owl.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1477768263_Giraffe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768263_Giraffe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EmptyChalkboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EmptyChalkboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chalkboard12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chalkboard12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bird_red2 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bird_red2 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1477768649_t9elephant_trans1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768649_t9elephant_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1477768693_t9panda_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768693_t9panda_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1477768781_t9lion_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768781_t9lion_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1477768998_iChat_top_delire" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768998_iChat top delire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1477768567_t9foxy_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768567_t9foxy_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1477773396_panda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1477773396_panda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1477768649_t9elephant_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768649_t9elephant_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bird_red2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bird_red2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1477772768_lessons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477772768_lessons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dialpad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dialpad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chalkboard-152414_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chalkboard-152414_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1477768602_t9batty_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477768602_t9batty_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1477768998_iChat_top_delire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768998_iChat top delire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bird_red2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bird_red2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chalkboard12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chalkboard12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chalkboard_first" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chalkboard_first.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1477773942_donutchart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477773942_donutchart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768143_twitter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768143_twitter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768781_t9lion_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768781_t9lion_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chalkboard-152414_960_7201" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chalkboard-152414_960_7201.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EmptyChalkboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EmptyChalkboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1477768649_t9elephant_trans1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768649_t9elephant_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768649_t9elephant_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768649_t9elephant_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1479648260_circle-content-play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1479648260_circle-content-play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768927_t9ratty_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768927_t9ratty_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768693_t9panda_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768693_t9panda_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768602_t9batty_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768602_t9batty_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1477768383_t9tuqui_trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1477768383_t9tuqui_trans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1479650611_questionssvg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1479650611_questionssvg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
