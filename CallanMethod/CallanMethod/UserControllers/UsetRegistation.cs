@@ -43,9 +43,27 @@ namespace CallanMethod
             }
             else
             {
-                MainForm.Instance.contollerID.RegistaionNewUser(tUser);
+                if (!MainForm.Instance.contollerID.RegistaionNewUser(tUser))
+                {
+                    MainForm.Instance.contollerID.ShowMessage("Program doesn' registation user!!!");
+                    return;
+                }
+                if (!MainForm.Instance.MetroContainer.Controls.ContainsKey("MainMenu"))
+                {
+                    MainMenu uc = new MainMenu();
+                    uc.Dock = DockStyle.Fill;
+                    MainForm.Instance.MetroContainer.Controls.Add(uc);
+                }
+                MainForm.Instance.MetroContainer.Controls["MainMenu"].BringToFront();
+                MainForm.Instance.PictureBack.Visible = true;
+                MainForm.Instance.UserHistory.Push("UsetRegistation");
+                mLoginIn.Text = "";
+                mPasswordIn.Text = "";
             }
-
+            tbFullName.Text = "";
+            tbLogin.Text    = "";
+            tbEmail.Text    = "";
+            tbPassword.Text = "";
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
@@ -92,6 +110,8 @@ namespace CallanMethod
             MainForm.Instance.MetroContainer.Controls["MainMenu"].BringToFront();
             MainForm.Instance.PictureBack.Visible = true;
             MainForm.Instance.UserHistory.Push("UsetRegistation");
+            mLoginIn.Text = "";
+            mPasswordIn.Text = "";
         }
 
     }

@@ -32,7 +32,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.labStage = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.labFullName = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel1.BackColor = System.Drawing.Color.YellowGreen;
             this.metroPanel1.Controls.Add(this.metroLabel6);
-            this.metroPanel1.Controls.Add(this.metroLabel4);
+            this.metroPanel1.Controls.Add(this.labStage);
             this.metroPanel1.Controls.Add(this.metroLabel2);
             this.metroPanel1.Controls.Add(this.labFullName);
             this.metroPanel1.Controls.Add(this.metroLabel1);
@@ -102,23 +102,23 @@
             this.metroLabel6.Text = "15";
             this.metroLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // metroLabel4
+            // labStage
             // 
-            this.metroLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.BackColor = System.Drawing.Color.YellowGreen;
-            this.metroLabel4.CustomBackground = true;
-            this.metroLabel4.CustomForeColor = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.metroLabel4.Location = new System.Drawing.Point(11, 219);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(83, 25);
-            this.metroLabel4.Style = MetroFramework.MetroColorStyle.Teal;
-            this.metroLabel4.TabIndex = 3;
-            this.metroLabel4.Text = "STAGE 1";
-            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labStage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labStage.AutoSize = true;
+            this.labStage.BackColor = System.Drawing.Color.YellowGreen;
+            this.labStage.CustomBackground = true;
+            this.labStage.CustomForeColor = true;
+            this.labStage.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.labStage.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.labStage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labStage.Location = new System.Drawing.Point(11, 219);
+            this.labStage.Name = "labStage";
+            this.labStage.Size = new System.Drawing.Size(73, 25);
+            this.labStage.Style = MetroFramework.MetroColorStyle.Teal;
+            this.labStage.TabIndex = 3;
+            this.labStage.Text = "STAGE ";
+            this.labStage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // metroLabel2
             // 
@@ -279,6 +279,9 @@
             this.Size = new System.Drawing.Size(843, 542);
             this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.ChoiceInStage_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ChoiceInStage_Paint);
+            this.StyleChanged += new System.EventHandler(this.ChoiceInStage_StyleChanged);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -301,7 +304,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel labFullName;
         private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel labStage;
         private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }

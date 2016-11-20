@@ -34,10 +34,11 @@ namespace CallanMethod
                 uc.Dock = DockStyle.Fill;
                 MainForm.Instance.MetroContainer.Controls.Add(uc);
             }
+            MainForm.Instance.MetroContainer.Controls["ChoiceInStage"].Invalidate(true);
             MainForm.Instance.MetroContainer.Controls["ChoiceInStage"].BringToFront();
             MainForm.Instance.PictureBack.Visible = true;
             MainForm.Instance.UserHistory.Push("MainMenu");
-
+            
         }
     }
 }

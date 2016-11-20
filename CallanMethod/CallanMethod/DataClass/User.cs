@@ -49,7 +49,7 @@ namespace CallanMethod
                 "UPDATE Users SET ID_Login = @ID_Login, Name = @Name, UserPassword = @UserPassword, DateOfBirth = @DateOfBirth, AmoutOfBlock = @AmoutOfBlock " +
                 " WHERE ID_Login = @ID_Login_OLD ", connection);
 
-            command.Parameters.Add("@ID_Login", SqlDbType.NChar, 5, "ID_Login");
+            command.Parameters.Add("@ID_Login", SqlDbType.NChar, 20, "ID_Login");
             command.Parameters.Add("@Name", SqlDbType.NVarChar, 50, "Name");
             command.Parameters.Add("@UserPassword", SqlDbType.NChar, 50, "UserPassword");
             command.Parameters.Add("@DateOfBirth", SqlDbType.Date, 50, "DateOfBirth");
@@ -70,7 +70,7 @@ namespace CallanMethod
                " VALUES (@ID_Login, @Name, @UserPassword, @DateOfBirth, @AmoutOfBlock) "+
                " SET IDENTITY_INSERT Words OFF ", connection);
 
-            command.Parameters.Add("@ID_Login", SqlDbType.NChar, 5, "ID_Login");
+            command.Parameters.Add("@ID_Login", SqlDbType.NChar, 20, "ID_Login");
             command.Parameters.Add("@Name", SqlDbType.NVarChar, 50, "Name");
             command.Parameters.Add("@UserPassword", SqlDbType.NChar, 50, "UserPassword");
             command.Parameters.Add("@DateOfBirth", SqlDbType.Date, 50, "DateOfBirth");
@@ -85,7 +85,7 @@ namespace CallanMethod
                "DELETE FROM Users WHERE ID_Login = @ID_Login_OLD", connection);
 
             SqlParameter parameter = command.Parameters.Add(
-                "@oldCustomerID", SqlDbType.NChar, 5, "ID_Login");
+                "@ID_Login_OLD", SqlDbType.NChar, 20, "ID_Login");
             parameter.SourceVersion = DataRowVersion.Original;
 
             return command;

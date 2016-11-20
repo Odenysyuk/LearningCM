@@ -22,6 +22,8 @@ namespace CallanMethod.DataClass
         public User user { get; set; }
         public Stage stage { get; set; }
         public Queue<Word>WordForStudy = new Queue<Word>();
+        public Queue<Word> WordForRepeat = new Queue<Word>();
+        public Queue<Question> Questions = new Queue<Question>();
         public StateForLearnig stateForStudy { get; set; }
          
 
@@ -45,6 +47,7 @@ namespace CallanMethod.DataClass
                     userAplication.FullName = users[0]["Name"].ToString();
                     userAplication.AmountOfBlock = Convert.ToInt32(users[0]["AmoutOfBlock"].ToString());
                     userAplication.DateOfBirth = Convert.ToDateTime(users[0]["DateOfBirth"].ToString());
+                    this.user = userAplication;
                     return true;
                 }
                     
@@ -145,12 +148,150 @@ namespace CallanMethod.DataClass
             }
         }
 
+        public bool GetWordForRepeat()
+            {
+
+            WordForRepeat.Clear();
+            using (SqlConnection connection = new SqlConnection(Settings.Default.DbConnect))
+            {
+                adapterLearntWords = new SqlDataAdapter(CommandFindWordForRepeat(), connection);
+                try
+                {
+                    adapterLearntWords.Fill(dtSet, "LearntWords");
+                }
+                catch (Exception e)
+                {
+                    ShowMessage(e.Message);
+                    return false;
+                }
+                DataRowCollection words = dtSet.Tables["LearntWords"].Rows;
+                if (words.Count != 0)
+                {
+                    foreach (DataRow el in words)
+                    {
+                        WordForRepeat.Enqueue(
+                                            new Word(Int32.Parse(el["ID_Word"].ToString()),
+                                                    el["Name"].ToString(),
+                                                    el["Translation"].ToString(),
+                                                    el["ID_Block"].ToString(),
+                                                    el["ID_Lesson"].ToString(),
+                                                    el["ID_Stage"].ToString()
+                                                    )
+                                            );
+
+                    }
+
+                    return true;
+                }
+
+                return false;
+
+               }
+        }
+
+        public bool GetWordForReQuestion()
+        {
+
+            Questions.Clear();
+            using (SqlConnection connection = new SqlConnection(Settings.Default.DbConnect))
+            {
+                adapterQuestion = new SqlDataAdapter(CommandFindWordForQuestion(), connection);
+                try
+                {
+                    adapterQuestion.Fill(dtSet, "Question");
+                }
+                catch (Exception e)
+                {
+                    ShowMessage(e.Message);
+                    return false;
+                }
+                DataRowCollection quest = dtSet.Tables["Question"].Rows;
+                if (quest.Count != 0)
+                {
+                    foreach (DataRow el in quest)
+                    {
+                        Questions.Enqueue(
+                                           new Question(
+                                                el["ID_Questin"].ToString(),                                                
+                                                el["Question"].ToString(),
+                                                el["Answer"].ToString(),
+                                                el["ID_Block"].ToString()
+                                                )
+                                           );
+
+                    }
+
+                    return true;
+                }
+
+                return false;
+
+            }
+        }
         private String CommandFindWordForStudy()
         {
             return "SELECT *  " +
                    " FROM Words " +
-                   " WHERE ID_Word Not IN (SELECT ID_Word FROM LearntWords) "+
-                   " AND ID_Stage = " + this.stage.ID_Stage.ToString();
+                   " WHERE ID_Word Not IN (SELECT ID_Word FROM LearntWords WHERE ID_Login = '"+user.userLogin+"') " +
+                   " AND ID_Stage = " + this.stage.ID_Stage.ToString() ;
+        }
+
+        private String CommandFindWordForRepeat()
+        {
+            return " SELECT Word.[ID_Word] " +
+                    " , Word.[Name] as [Name]" +
+                    " , Word.[Translation] " +
+                    " , Word.[ID_Block] " +
+                    " , Word.[ID_Lesson] " +
+                    " , Word.[ID_Stage] " +
+                    "  FROM[dbo].[Words] as Word " +
+                    " INNER JOIN dbo.LearntWords as Leart " +
+                    " ON Word.ID_Word = Leart.ID_Word " +
+                    " and Leart.ID_Login =  '" + this.user.userLogin + "' "+ 
+                    " AND Word.ID_Stage = " + this.stage.ID_Stage.ToString();
+        }
+
+
+        public bool AddNewWordForLernt(Word word)
+        {
+            var newRow = dtSet.Tables["LearntWords"].NewRow();
+            newRow["ID_Word"] = word.ID_Word;
+            newRow["Name"] = word.Name;
+            newRow["Translation"] = word.Translation;
+            newRow["ID_Block"] = word.block;
+            newRow["ID_Lesson"] = word.lesson;
+            newRow["ID_Stage"] = word.stage;
+            dtSet.Tables["LearntWords"].Rows.Add(newRow);
+
+            using (SqlConnection connection = new SqlConnection(Settings.Default.DbConnect))
+            {
+                aUsers = new SqlDataAdapter(CommandFindWordForRepeat(), connection);
+                aUsers.UpdateCommand = LearntWord.CommandUpdate(connection, word, this.user);
+                aUsers.InsertCommand = LearntWord.CommandInsert(connection, word, this.user);
+                aUsers.DeleteCommand = LearntWord.CommanDelete(connection, word, this.user);
+                try
+                {
+                    aUsers.Update(dtSet, "LearntWords");
+                }
+                catch (Exception e)
+                {
+                    ShowMessage(e.Message);
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+        private String CommandFindWordForQuestion()
+        {
+            return "SELECT  [ID_Questin] " +
+                  " ,[ID_Block] " +
+                  " ,[Question] " +
+                  " ,[Answer] " +
+                  "   FROM [dbo].[Question] " +
+                  "   WHERE ID_Block > (SELECT MIN(ID_Block) FROM Words WHERE ID_Stage = " + this.stage.ID_Stage.ToString() + ")";
         }
 
     }

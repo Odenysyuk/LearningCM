@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 
 namespace CallanMethod.DataClass
 {
-    class Question
+   public  class Question
     {
-        public Int32 ID_Question { get; set; }
+        public String ID_Question { get; set; }
         public String Name { get; set; }
         public String Answer { get; set; }
-        public Block block { get; set; }
+        public String block { get; set; }
+
+        public Question()
+        {
+        }
+
+        public Question(String ID_Q, String Name, String Answer, String block)
+        {
+            this.ID_Question = ID_Q;
+            this.Name = Name;
+            this.Answer = Answer;
+            this.block = block;
+        }
 
     }
 }
